@@ -1,0 +1,25 @@
+function setup() {
+	createCanvas(windowWidth, windowHeight);
+	background(100);
+	a = windowWidth/10
+	y = windowHeight/10
+	b = windowWidth - windowWidth/10
+}
+
+function draw() {
+	line(a, y, b, y)
+	fractal(a, y, b, y, 0, 0)
+}
+function fractal(x1, y1, x2, y2, j, k) {
+	i = 0;	
+	while (i < 7 && j < 7){
+		line(x1, y+=50, x1+ (x2-x1)/3, y+=50);
+		fractal(x1, y+=50, x1+ (x2-x1)/3, y+=50, j+2, k);
+		line(x1+ 2*(x2-x1)/3, y1+50, x2, y1+50);
+		fractal(x1+ 2*(x2-x1)/3, y1+50, x2, y1+50, j+2, k);
+		j = j + 1;
+		i = i + 1;
+		k = k + 1;
+	}
+}
+
